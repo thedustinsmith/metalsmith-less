@@ -2,7 +2,7 @@ var assertDir = require('assert-dir-equal')
 var less = require('../')
 var Metalsmith = require('metalsmith')
 
-describe('metalsmith-less', function () {
+describe('the plugin', function () {
 
     it('should convert less to css', function (done) {
         (new Metalsmith('test/fixtures/basic'))
@@ -19,8 +19,8 @@ describe('metalsmith-less', function () {
             .use(less({
                 pattern: 'less/index.less',
                 parse: {
-                    paths: ['test/fixtures/import/src/less']
-                }
+                    paths: ['test/fixtures/import/src/less'],
+                },
             }))
             .build(function (err) {
                 if (err) return done(err)
@@ -35,8 +35,8 @@ describe('metalsmith-less', function () {
                 pattern: 'less/index.less',
                 useDefaultSourceMap: true,
                 parse: {
-                    paths: ['test/fixtures/source-map/src/less']
-                }
+                    paths: ['test/fixtures/source-map/src/less'],
+                },
             }))
             .build(function (err) {
                 if (err) return done(err)
